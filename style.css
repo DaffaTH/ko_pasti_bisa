@@ -1,0 +1,132 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
+/* Main logo styles */
+#main-logo {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: block;
+  margin: 0 auto;
+  transform-origin: center center;
+  position: relative;
+  z-index: 10;
+}
+
+.main-logo-large {
+  width: 250px;
+  transform: scale(1);
+}
+
+.main-logo-small {
+  width: 150px;
+  transform: scale(0.7);
+}
+
+/* Secondary logos container */
+.secondary-logos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+}
+
+/* Individual secondary logos */
+.logo-link {
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  pointer-events: auto;
+}
+
+.secondary-logo {
+  width: 120px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease-out;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));
+}
+
+/* Active states */
+.secondary-logos.active {
+  display: block;
+}
+
+.secondary-logos.active .secondary-logo {
+  opacity: 1;
+  transform: scale(5);
+  width: 250px;
+}
+
+.secondary-logo:hover {
+  transform: scale(1.4) !important;
+}
+
+/* Animation */
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-logo-large {
+    width: 180px;
+  }
+  
+  .main-logo-small {
+    width: 180px;
+    transform: scale(0.6);
+  }
+  
+  .secondary-logo {
+    width: 90px;
+  }
+  
+  .secondary-logos.active .secondary-logo {
+    width: 120px;
+  }
+}
